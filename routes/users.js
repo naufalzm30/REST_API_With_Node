@@ -1,28 +1,20 @@
 import express from 'express';
 
+import { createUser, getUser, getUserWithId, deleteUser, patchUser } from '../constrollers/users.js';
+
 const router = express.Router();
 
-const users = [
-    {
-        name:"John",
-        lastName:"Lennon"
-    },
-    {
-        name:"Paul",
-        lastName:"Mccartney"
-    }
-]
+router.get('/', getUser);
 
-router.get('/', (req,res)=>{
-    res.send(users);
-});
+router.post('/', createUser);
 
-router.post('/', (req,res)=>{
-    const user = req.body;
 
-    users.push(user);
+router.get('/:id', getUserWithId);
 
-    res.send(`user ${user.name} sudah ditambahakan`);
-});
+
+router.delete('/:id', deleteUser);
+
+
+router.patch('/:id', patchUser);
 
 export default router;
