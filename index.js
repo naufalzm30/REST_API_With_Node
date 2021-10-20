@@ -44,5 +44,3 @@ app.listen(PORT,()=>console.log(`server run di http://localhost:${PORT}`));
 //   }
 //   return true;
 // });
-
-// console.log(numArray.length);
